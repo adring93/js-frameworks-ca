@@ -1,8 +1,21 @@
-export default function HomePage() {
-  return (
-    <div>
-      <h1>Products</h1>
-      <p>Products will appear here.</p>
-    </div>
-  )
+export type Review = {
+  id: string
+  username: string
+  rating: number
+  description: string
+}
+
+export type Product = {
+  id: string
+  title: string
+  description: string
+  price: number
+  discountedPrice: number
+  image: {
+    url: string
+    alt: string
+  }
+  rating: number
+  tags: string[]
+  reviews: Review[]
 }
