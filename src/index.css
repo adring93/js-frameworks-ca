@@ -25,30 +25,46 @@ a {
   padding: 16px;
 }
 
-.header {
+.header,
+.nav,
+.row,
+.priceRow,
+.reviewTop {
   display: flex;
   gap: 12px;
   align-items: center;
+}
+
+.header {
   justify-content: space-between;
   padding: 16px;
   border-bottom: 1px solid #eee;
   flex-wrap: wrap;
 }
 
-.logo {
-  font-weight: 700;
-  text-decoration: none;
-  color: inherit;
-}
-
 .nav {
-  display: flex;
-  gap: 12px;
   flex-wrap: wrap;
 }
 
-.nav a {
+.row,
+.reviewTop {
+  justify-content: space-between;
+}
+
+.logo,
+.cardLink,
+.nav a,
+.btn,
+.btnSecondary,
+.btnLink {
   text-decoration: none;
+}
+
+.logo {
+  font-weight: 700;
+}
+
+.nav a {
   opacity: 0.8;
 }
 
@@ -57,10 +73,33 @@ a {
   font-weight: 600;
 }
 
-.grid {
+.grid,
+.product,
+.cart,
+.reviews,
+.form,
+.field {
   display: grid;
-  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+.grid,
+.product,
+.cart,
+.reviews {
   gap: 16px;
+}
+
+.form {
+  gap: 14px;
+  margin-top: 12px;
+}
+
+.field {
+  gap: 6px;
+}
+
+.grid {
+  grid-template-columns: 1fr;
 }
 
 @media (min-width: 520px) {
@@ -73,41 +112,75 @@ a {
   .grid {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
+
+  .product {
+    grid-template-columns: 360px 1fr;
+    align-items: start;
+  }
+}
+
+.card,
+.cartRow,
+.review,
+.productImg,
+.tag,
+.searchBox,
+.successText,
+.form {
+  background: #fff;
+}
+
+.card,
+.cartRow,
+.review,
+.productImg,
+.thumbWrap,
+.searchBox,
+.form {
+  border: 1px solid #eee;
+  border-radius: 12px;
 }
 
 .card {
-  background: #fff;
-  border: 1px solid #e7e7e7;
-  border-radius: 12px;
   padding: 12px;
-  display: grid;
   gap: 10px;
+  border-color: #e7e7e7;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
   transition: box-shadow 120ms ease, transform 120ms ease;
 }
 
 .card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.10);
-}
-
-.cardLink {
-  text-decoration: none;
-  color: inherit;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.1);
 }
 
 .thumbWrap {
   position: relative;
   background: #fafafa;
-  border: 1px solid #eee;
-  border-radius: 12px;
   padding: 10px;
+}
+
+.thumb,
+.productImg,
+.cartImg,
+.searchThumb {
+  object-fit: contain;
 }
 
 .thumb {
   width: 100%;
   height: 160px;
-  object-fit: contain;
+}
+
+.product {
+  grid-template-columns: 1fr;
+  margin-top: 12px;
+}
+
+.productImg {
+  width: 100%;
+  height: 360px;
+  padding: 12px;
 }
 
 .title {
@@ -118,19 +191,27 @@ a {
   overflow: hidden;
 }
 
-.muted {
-  opacity: 0.75;
+.muted,
+.errorText,
+.successText,
+.cartTitle {
   margin: 0;
 }
 
+.muted {
+  opacity: 0.75;
+}
+
 .priceRow {
-  display: flex;
   gap: 10px;
-  align-items: center;
   margin-top: 6px;
 }
 
-.price {
+.price,
+.cartTitle,
+.logo,
+.label,
+.searchLabel {
   font-weight: 600;
 }
 
@@ -143,23 +224,30 @@ a {
   position: absolute;
   top: 10px;
   left: 10px;
-  background: #111;
-  color: #fff;
   padding: 6px 8px;
   border-radius: 10px;
   font-size: 12px;
+  background: #111;
+  color: #fff;
+}
+
+.btn,
+.btnSecondary,
+.btnLink,
+.input,
+.textarea,
+.qty {
+  border-radius: 10px;
 }
 
 .btn,
 .btnSecondary,
 .btnLink {
-  border-radius: 10px;
   padding: 10px 12px;
   border: 1px solid #111;
   background: #111;
   color: #fff;
   cursor: pointer;
-  text-decoration: none;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -174,68 +262,28 @@ a {
   color: #111;
 }
 
-.row {
-  display: flex;
-  gap: 12px;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.product {
-  display: grid;
-  gap: 16px;
-  grid-template-columns: 1fr;
-  margin-top: 12px;
-}
-
-@media (min-width: 900px) {
-  .product {
-    grid-template-columns: 360px 1fr;
-    align-items: start;
-  }
-}
-
-.productImg {
-  width: 100%;
-  height: 360px;
-  object-fit: contain;
-  border: 1px solid #eee;
-  border-radius: 12px;
-  padding: 12px;
-  background: #fff;
-}
-
-.cart {
-  display: grid;
-  gap: 12px;
-}
-
 .cartRow {
-  display: grid;
   grid-template-columns: 80px 1fr;
   gap: 12px;
-  border: 1px solid #eee;
-  border-radius: 12px;
   padding: 12px;
-  background: #fff;
 }
 
 .cartImg {
   width: 80px;
   height: 80px;
-  object-fit: contain;
 }
 
-.cartTitle {
-  margin: 0;
-  font-weight: 600;
+.qty,
+.input,
+.textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ddd;
 }
 
 .qty {
   width: 70px;
   padding: 8px;
-  border: 1px solid #ddd;
-  border-radius: 10px;
 }
 
 .searchArea {
@@ -247,34 +295,23 @@ a {
 .searchLabel {
   display: block;
   margin-bottom: 6px;
-  font-weight: 600;
-}
-
-.input {
-  width: 100%;
-  padding: 10px 12px;
-  border: 1px solid #ddd;
-  border-radius: 10px;
 }
 
 .searchBox {
   margin-top: 8px;
-  border: 1px solid #eee;
-  border-radius: 12px;
   overflow: hidden;
-  background: #fff;
 }
 
 .searchItem {
   width: 100%;
-  text-align: left;
-  padding: 10px 12px;
-  border: 0;
-  background: white;
-  cursor: pointer;
   display: flex;
   align-items: center;
   gap: 10px;
+  text-align: left;
+  padding: 10px 12px;
+  border: 0;
+  background: #fff;
+  cursor: pointer;
 }
 
 .searchItem:hover {
@@ -284,7 +321,6 @@ a {
 .searchThumb {
   width: 36px;
   height: 36px;
-  object-fit: contain;
 }
 
 .tags {
@@ -294,52 +330,13 @@ a {
 }
 
 .tag {
+  padding: 6px 10px;
   border: 1px solid #ddd;
   border-radius: 999px;
-  padding: 6px 10px;
   font-size: 13px;
-  background: #fff;
-}
-
-.reviews {
-  display: grid;
-  gap: 12px;
-}
-
-.review {
-  border: 1px solid #eee;
-  border-radius: 12px;
-  padding: 12px;
-  background: #fff;
-}
-
-.reviewTop {
-  display: flex;
-  justify-content: space-between;
-  gap: 12px;
-  margin-bottom: 6px;
-}
-
-.form {
-  display: grid;
-  gap: 14px;
-  margin-top: 12px;
-}
-
-.field {
-  display: grid;
-  gap: 6px;
-}
-
-.label {
-  font-weight: 600;
 }
 
 .textarea {
-  width: 100%;
-  padding: 10px 12px;
-  border: 1px solid #ddd;
-  border-radius: 10px;
   font-family: inherit;
   resize: vertical;
 }
@@ -356,24 +353,18 @@ a {
 }
 
 .errorText {
-  margin: 0;
   color: #c11;
   font-size: 13px;
 }
 
 .successText {
-  margin: 0;
   padding: 10px 12px;
   border: 1px solid #111;
-  border-radius: 12px;
-  background: #fff;
 }
 
 @media (min-width: 700px) {
   .form {
     padding: 16px;
-    border: 1px solid #eee;
     border-radius: 16px;
-    background: #fff;
   }
 }
