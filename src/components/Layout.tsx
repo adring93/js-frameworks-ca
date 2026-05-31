@@ -2,7 +2,7 @@ import { Link, NavLink } from "react-router-dom"
 import { useCart } from "../store/cart"
 
 export default function Layout({ children }: { children: React.ReactNode }) {
-  const { totalItems } = useCart()
+  const { totalItems, cartMessage, clearCartMessage } = useCart()
 
   return (
     <>
@@ -25,6 +25,15 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           </NavLink>
         </nav>
       </header>
+
+      {cartMessage && (
+        <div className="toast" role="status" aria-live="polite">
+          <span>{cartMessage}</span>
+          <button type="button" onClick={clearCartMessage} aria-label="Close message">
+            ×
+          </button>
+        </div>
+      )}
 
       <main className="container">{children}</main>
     </>
